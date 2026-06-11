@@ -29,6 +29,15 @@ a {
     color: inherit;
 }
 
+:focus-visible {
+    outline: 2px solid #e53935;
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
 .container {
     max-width: 1120px;
     margin: 0 auto;
@@ -112,6 +121,26 @@ a {
     transition: 0.3s;
 }
 
+/* ===== SKIP LINK ===== */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    background: #e53935;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 0 0 8px 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 10000;
+    transition: top 0.25s;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: none;
+}
+
 /* ===== HERO ===== */
 .hero {
     position: relative;
@@ -120,8 +149,14 @@ a {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: url('https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=1600&q=80') center/cover no-repeat fixed;
+    background: url('https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=1600&q=80') center/cover no-repeat scroll;
     color: #fff;
+}
+
+@media (min-width: 769px) {
+    .hero {
+        background-attachment: fixed;
+    }
 }
 
 .hero-overlay {
@@ -133,18 +168,6 @@ a {
 .hero-content {
     position: relative;
     z-index: 1;
-}
-
-.hero-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
-    padding: 8px 22px;
-    border-radius: 50px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 24px;
-    letter-spacing: 0.3px;
 }
 
 .hero h1 {
@@ -326,21 +349,27 @@ a {
 }
 
 .about-badge-aic {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-    border: 2px solid #81c784;
-    padding: 12px 24px;
-    border-radius: 50px;
+    border-left: 4px solid #2e7d32;
+    padding: 16px 24px;
     font-size: 1rem;
     color: #2e7d32;
     margin-bottom: 32px;
+    border-radius: 0 12px 12px 0;
+    font-weight: 600;
 }
 
-.about-badge-aic img {
-    width: 36px;
-    height: 36px;
+.about-badge-aic i {
+    color: #2e7d32;
+    font-size: 1.2rem;
+}
+
+.about .container > .about-badge-aic:last-child {
+    margin-bottom: 0;
 }
 
 /* ===== MENU ===== */
@@ -413,41 +442,41 @@ a {
     margin-top: 40px;
     background: #fff;
     border-radius: 16px;
-    padding: 28px 32px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px 32px;
-    justify-content: center;
+    padding: 24px 28px;
+    text-align: center;
     box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
 
 .menu-notes p {
     font-size: 0.95rem;
     color: #5a4a3a;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    margin-bottom: 8px;
 }
 
-.menu-notes i {
-    color: #81c784;
+.menu-notes p:last-child {
+    margin-bottom: 0;
 }
 
 /* ===== REVIEWS ===== */
 .reviews {
     background: #fff;
+    padding: 40px 0;
+}
+
+.reviews .section-header {
+    margin-bottom: 20px;
 }
 
 .reviews-slider {
     position: relative;
     max-width: 640px;
-    margin: 0 auto 32px;
-    min-height: 200px;
+    margin: 0 auto 20px;
+    min-height: 130px;
 }
 
 .review-card {
     text-align: center;
-    padding: 32px 24px;
+    padding: 4px 24px;
     display: none;
     animation: fadeIn 0.5s ease;
 }
@@ -534,6 +563,28 @@ a {
     border-radius: 5px;
 }
 
+.reviews-source {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: #7a5f4a;
+}
+
+.reviews-source i {
+    margin-right: 6px;
+}
+
+.reviews-source a {
+    color: #5d4037;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.reviews-source a:hover {
+    color: #e53935;
+}
+
 /* ===== GALLERY ===== */
 .gallery {
     background: #fff8f0;
@@ -561,29 +612,6 @@ a {
 
 .gallery-item:hover img {
     transform: scale(1.07);
-}
-
-.gallery-item--wide {
-    grid-column: span 2;
-    aspect-ratio: 2/1;
-}
-
-.gallery-note {
-    text-align: center;
-    margin-top: 24px;
-    color: #7a5f4a;
-    font-size: 0.9rem;
-}
-
-.gallery-note i {
-    margin-right: 6px;
-}
-
-.gallery-note code {
-    background: #e8ddd0;
-    padding: 2px 10px;
-    border-radius: 6px;
-    font-size: 0.85rem;
 }
 
 /* ===== CONTACT ===== */
@@ -637,8 +665,14 @@ a {
     font-weight: 600;
 }
 
-.contact-item a:hover {
+.contact-item a {
     color: #e53935;
+    font-weight: 700;
+}
+
+.contact-item a:hover {
+    color: #c62828;
+    text-decoration: underline;
 }
 
 .contact-map {
@@ -718,6 +752,11 @@ a {
         border-bottom: 1px solid rgba(61,43,31,0.08);
     }
 
+    .nav-menu .nav-link {
+        padding: 12px 18px;
+        display: block;
+    }
+
     .nav-menu.open {
         transform: translateY(0);
         opacity: 1;
@@ -726,10 +765,6 @@ a {
 
     .nav-toggle {
         display: flex;
-    }
-
-    .hero {
-        background-attachment: scroll;
     }
 
     .hero {
@@ -790,9 +825,17 @@ a {
         font-size: 0.95rem;
     }
 
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .menu-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
+    }
+
+    .menu-card-body p {
+        font-size: 0.88rem;
     }
 
     .menu-card-body {
@@ -809,15 +852,6 @@ a {
 
     .review-text {
         font-size: 1rem;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .gallery-item--wide {
-        grid-column: span 2;
-        aspect-ratio: 2/1;
     }
 
     .contact-grid {
@@ -837,6 +871,10 @@ a {
     .feature-item {
         font-size: 0.8rem;
         padding: 8px 14px;
+    }
+
+    .contact-item p {
+        word-break: break-word;
     }
 }
 
@@ -870,11 +908,6 @@ a {
         font-size: 0.95rem;
     }
 
-    .hero-badge {
-        font-size: 0.8rem;
-        padding: 6px 16px;
-    }
-
     .about-image img {
         height: 220px;
     }
@@ -884,9 +917,16 @@ a {
         gap: 8px;
     }
 
-    .about-badge-aic img {
-        width: 28px;
-        height: 28px;
+    .about-text p {
+        font-size: 0.9rem;
+    }
+
+    .section-desc {
+        font-size: 0.9rem;
+    }
+
+    .review-text {
+        font-size: 0.9rem;
     }
 
     .menu-grid {
@@ -914,7 +954,7 @@ a {
     }
 
     .review-card {
-        padding: 24px 16px;
+        padding: 8px 16px;
     }
 
     .review-text {
@@ -973,11 +1013,6 @@ a {
 
     .gallery-grid {
         grid-template-columns: 1fr;
-    }
-
-    .gallery-item--wide {
-        grid-column: span 1;
-        aspect-ratio: 1;
     }
 
     .about-image img {

@@ -15,11 +15,12 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+    <a href="#hero" class="skip-link">Vai al contenuto principale</a>
 
     <!-- ===== NAV ===== -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigazione principale">
         <div class="container nav-container">
-            <a href="#" class="nav-logo">
+            <a href="#hero" class="nav-logo">
                 <span class="logo-icon">🍦</span> ConoCoppetta
             </a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -39,7 +40,6 @@
     <section class="hero" id="hero">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <div class="hero-badge">★★★★★ 100% positive (77 recensioni)</div>
             <h1>ConoCoppetta</h1>
             <p class="hero-sub">Gelateria artigianale con produzione propria · Azzate</p>
             <p class="hero-desc">Gelato, granite, frappè, biscotti gelato e torte gelato.<br />Tutto naturale, tutto senza glutine.</p>
@@ -58,10 +58,6 @@
                 <h2>La nostra storia</h2>
                 <div class="divider"><span></span></div>
             </div>
-            <div class="about-badge-aic">
-                <img src="https://img.icons8.com/color/48/000000/gluten-free.png" alt="Senza glutine" />
-                <span><strong>Partner AIC</strong> — Associazione Italiana Celiachia</span>
-            </div>
             <div class="about-grid">
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&q=80" alt="ConoCoppetta gelateria" />
@@ -78,6 +74,10 @@
                         <li><i class="fas fa-hand-peace"></i> <span>Opzioni vegane sempre disponibili</span></li>
                     </ul>
                 </div>
+            </div>
+            <div class="about-badge-aic">
+                <i class="fas fa-star"></i>
+                <span><strong>Partner AIC</strong> — Associazione Italiana Celiachia</span>
             </div>
         </div>
     </section>
@@ -168,9 +168,9 @@
                 </div>
             </div>
             <div class="menu-notes">
-                <p><i class="fas fa-check-circle"></i> Tutti i gusti sono disponibili in <strong>cono, coppetta</strong> e <strong>torta gelato</strong> su ordinazione.</p>
-                <p><i class="fas fa-seedling"></i> Opzioni vegane disponibili — chiedi al banco!</p>
-                <p><i class="fas fa-wheat-alt"></i> Certificato <strong>senza glutine</strong> su tutti i gusti.</p>
+                <p>Tutti i gusti sono disponibili in <strong>cono</strong>, <strong>coppetta</strong> e <strong>torta gelato</strong> su ordinazione.</p>
+                <p>Opzioni vegane disponibili — <strong>chiedi al banco</strong>!</p>
+                <p>Certificato <strong>senza glutine</strong> su tutti i gusti.</p>
             </div>
         </div>
     </section>
@@ -216,6 +216,7 @@
                 <div class="review-dots" id="reviewDots"></div>
                 <button class="review-btn" id="reviewNext" aria-label="Successivo"><i class="fas fa-chevron-right"></i></button>
             </div>
+            <p class="reviews-source"><i class="fab fa-facebook"></i> Recensioni tratte dalla nostra <a href="https://www.facebook.com/ConoCoppetta/" target="_blank" rel="noopener">pagina Facebook</a></p>
         </div>
     </section>
 
@@ -228,23 +229,25 @@
                 <div class="divider"><span></span></div>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item gallery-item--wide">
-                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80" alt="Gelato artigianale" />
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&h=600&fit=crop" alt="Gelato artigianale" />
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1580915411954-282cb1b0d780?w=400&q=80" alt="Cono gelato" />
+                    <img src="https://images.unsplash.com/photo-1580915411954-282cb1b0d780?w=600&h=600&fit=crop" alt="Cono gelato" />
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1505394033641-40f6ad096359?w=400&q=80" alt="Coppetta gelato" />
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&h=600&fit=crop" alt="Gusto fragola" />
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1570197785652-e0e1c5146a48?w=600&q=80" alt="Gelato al cioccolato" />
+                    <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=600&h=600&fit=crop" alt="Gelato alla vaniglia" />
                 </div>
-                <div class="gallery-item gallery-item--wide">
-                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80" alt="Gusto fragola" />
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=600&h=600&fit=crop" alt="Gelato al cioccolato" />
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1528962862197-29c4f24ccc04?w=600&h=600&fit=crop" alt="Coni gelato" />
                 </div>
             </div>
-            <p class="gallery-note"><i class="fas fa-camera"></i> Sostituisci queste foto con le tue immagini nella cartella <code>images/</code></p>
         </div>
     </section>
 
